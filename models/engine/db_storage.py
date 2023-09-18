@@ -46,7 +46,13 @@ class DBStorage:
                 cls = eval(cls)
             queries = self.__session.query(cls).all()
             for query in queries:
-                objs.update({"{}.{}".format(query.__class__.__name__, query.id): query})
+                objs.update(
+                    {
+                        "{}.{}".format(
+                            query.__class__.__name__, query.id
+                        ): query.to_dict()
+                    }
+                )
             return objs
         else:
             classes = [User, City, State, Place, Review, Amenity]
@@ -54,7 +60,11 @@ class DBStorage:
                 queries = self.__session.query(class_).all()
                 for query in queries:
                     objs.update(
-                        {"{}.{}".format(query.__class__.__name__, query.id): query}
+                        {
+                            "{}.{}".format(
+                                query.__class__.__name__, query.id
+                            ): query.to_dict()
+                        }
                     )
             return objs
 
