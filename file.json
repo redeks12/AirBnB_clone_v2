@@ -1,69 +1,14 @@
 {
-  "Place.af47abf6-7052-4603-b3d0-5e090ccba91f": {
-    "id": "af47abf6-7052-4603-b3d0-5e090ccba91f",
-    "created_at": "2023-09-16T10:09:24.135944",
-    "updated_at": "2023-09-16T10:09:24.135944",
-    "city_id": "0001",
-    "user_id": "0001",
-    "name": "My little house",
-    "number_rooms": 4,
-    "number_bathrooms": 2,
-    "max_guest": 10,
-    "price_by_night": 300,
-    "latitude": 37.773972,
-    "longitude": -122.431297,
-    "__class__": "Place"
+  "BaseModel.d2690184-72dd-48d9-a04a-7c906ddb73e2": {
+    "id": "d2690184-72dd-48d9-a04a-7c906ddb73e2",
+    "created_at": "2023-09-18T10:41:45.634389",
+    "updated_at": "2023-09-18T10:41:45.634389",
+    "__class__": "BaseModel"
   },
-  "User.b98b4c97-3cbb-4579-9f75-24e6922bb623": {
-    "id": "b98b4c97-3cbb-4579-9f75-24e6922bb623",
-    "created_at": "2023-09-16T22:14:36.791103",
-    "updated_at": "2023-09-16T22:14:36.791103",
+  "User.53dbfcad-ea16-43fb-b1cc-aee30c94e421": {
+    "id": "53dbfcad-ea16-43fb-b1cc-aee30c94e421",
+    "created_at": "2023-09-18T10:43:31.946299",
+    "updated_at": "2023-09-18T10:43:31.946299",
     "__class__": "User"
-  },
-  "State.91a6fd07-d2d0-4609-99ab-b21dbdf808dd": {
-    "id": "91a6fd07-d2d0-4609-99ab-b21dbdf808dd",
-    "created_at": "2023-09-18T10:04:37.604437",
-    "updated_at": "2023-09-18T10:04:37.604437",
-    "__class__": "State"
-  },
-  "State.ca1bde8d-b45e-47d3-aabe-d117a926bf5f": {
-    "id": "ca1bde8d-b45e-47d3-aabe-d117a926bf5f",
-    "created_at": "2023-09-18T10:05:40.177668",
-    "updated_at": "2023-09-18T10:05:40.177668",
-    "__class__": "State"
-  },
-  "State.971abe14-ec28-4743-bfc5-948a6b9933d8": {
-    "id": "971abe14-ec28-4743-bfc5-948a6b9933d8",
-    "created_at": "2023-09-18T10:09:29.653364",
-    "updated_at": "2023-09-18T10:09:29.653364",
-    "__class__": "State"
-  },
-  "State.bf9494f0-2979-49cc-9855-e356696dfde2": {
-    "id": "bf9494f0-2979-49cc-9855-e356696dfde2",
-    "created_at": "2023-09-18T10:09:48.237650",
-    "updated_at": "2023-09-18T10:09:48.237650",
-    "__class__": "State"
-  },
-  "State.b4cc954d-4c86-4e41-b718-9b957fc6b0c3": {
-    "id": "b4cc954d-4c86-4e41-b718-9b957fc6b0c3",
-    "created_at": "2023-09-18T10:10:49.149847",
-    "updated_at": "2023-09-18T10:10:49.149847",
-    "__class__": "State"
-  },
-  "State.93033e99-039b-4c67-9cf9-c3999717199e": {
-    "id": "93033e99-039b-4c67-9cf9-c3999717199e",
-    "created_at": "2023-09-18T10:12:55.576693",
-    "updated_at": "2023-09-18T10:12:55.576693",
-    "name": "ojobo",
-    "male": 2,
-    "__class__": "State"
-  },
-  "State.f2b2df62-9bc6-4642-b442-8a1c83ac228b": {
-    "id": "f2b2df62-9bc6-4642-b442-8a1c83ac228b",
-    "created_at": "2023-09-18T10:14:13.038133",
-    "updated_at": "2023-09-18T10:14:13.038133",
-    "name": "ojobo",
-    "male": 2,
-    "__class__": "State"
   }
 }

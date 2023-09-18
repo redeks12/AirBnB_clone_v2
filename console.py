@@ -158,8 +158,9 @@ class HBNBCommand(cmd.Cmd):
             new_instance = HBNBCommand.classes[argus[0]](**params)
         print(new_instance.id)
         storage.new(new_instance)
-        storage.delete(new_instance)
         storage.save()
+        base = self.classes["BaseModel"]({"name": "California"})
+        print(base.name)
 
     def help_create(self):
         """Help information for the create method"""
