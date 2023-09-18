@@ -12,6 +12,14 @@ class State(BaseModel, Base):
     name = Column(String(128), nullable=False)
     cities = relationship("City", backref="state", cascade="all, delete")
 
-    # @getattr
-    def get_cities(self):
-        return self.cities
+    @property
+    def cities(self):
+        from models.city import City
+        from models import storage
+
+        cit = []
+        store = storage.all(City)
+        for key, city in store:
+            if self.id == city.state_id:
+                cit.append(city)
+        return cit
