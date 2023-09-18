@@ -15,6 +15,7 @@ class State(BaseModel, Base):
 
     @property
     def cities(self):
+        """Return the cities"""
         from models import storage
 
         cit = []
