@@ -12,7 +12,7 @@ class Place(BaseModel):
     name = Column(String(128), nullable=False)
     description = Column(String(1024), nullable=True)
     number_rooms = Column(Integer, nullable=False, default=0)
-    number_bathrooms = 0
+    number_bathrooms = Column(Integer, nullable=False, default=0)
     max_guest = 0
     price_by_night = 0
     latitude = 0.0
