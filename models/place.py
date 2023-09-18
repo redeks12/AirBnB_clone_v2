@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
-from models.base_model import BaseModel
+import models
+import os
+from models.base_model import BaseModel, Base
 
 
-class Place(BaseModel):
+class Place(BaseModel, Base):
     """ A place to stay """
 
     __tablename__ = "places"
