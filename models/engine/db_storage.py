@@ -34,12 +34,16 @@ class DBStorage:
             pool_pre_ping=True,
         )
 
+        if HBNB_ENV == "test":
+            Base.metadata.drop_all(self.__engine)
+
     def all(self, cls=None):
         """gets all objects in the database"""
         objs = {}
 
         if cls is not None:
-            cls = eval(cls)
+            if type(cls) == str:
+                cls = eval(cls)
             queries = self.__session.query(cls).all()
             for query in queries:
                 objs.update({"{}.{}".format(query.__class__.__name__, query.id): query})
@@ -75,4 +79,4 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         some_session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(some_session)
-        self.__session = Session
+        self.__session = Session()
