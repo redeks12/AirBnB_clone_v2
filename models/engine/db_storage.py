@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 from models.amenity import Amenity
-from models.base_model import Base, BaseModel
+from models.base_model import Base
 from models.city import City
 from models.place import Place
 from models.review import Review
@@ -49,7 +49,7 @@ class DBStorage:
                 objs.update({"{}.{}".format(query.__class__.__name__, query.id): query})
             return objs
         else:
-            classes = [User, BaseModel, City, State, Place, Review, Amenity]
+            classes = [User, City, State, Place, Review, Amenity]
             for class_ in classes:
                 queries = self.__session.query(class_).all()
                 for query in queries:
