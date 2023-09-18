@@ -159,8 +159,6 @@ class HBNBCommand(cmd.Cmd):
         print(new_instance.id)
         storage.new(new_instance)
         storage.save()
-        base = self.classes["BaseModel"]({"name": "California"})
-        print(base.name)
 
     def help_create(self):
         """Help information for the create method"""
