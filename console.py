@@ -156,8 +156,9 @@ class HBNBCommand(cmd.Cmd):
             new_instance = HBNBCommand.classes[argus[0]]()
         else:
             new_instance = HBNBCommand.classes[argus[0]](**params)
-        storage.save()
         print(new_instance.id)
+        storage.new(new_instance)
+        storage.delete(new_instance)
         storage.save()
 
     def help_create(self):
