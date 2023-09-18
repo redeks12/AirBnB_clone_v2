@@ -39,6 +39,7 @@ class DBStorage:
         objs = {}
 
         if cls is not None:
+            cls = eval(cls)
             queries = self.__session.query(cls).all()
             for query in queries:
                 objs.update({"{}.{}".format(query.__class__.__name__, query.id): query})
