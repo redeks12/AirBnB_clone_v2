@@ -9,7 +9,7 @@ class Place(BaseModel):
     __tablename__ = "places"
     city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-    name = ""
+    name = Column(String(128), nullable=False)
     description = ""
     number_rooms = 0
     number_bathrooms = 0
