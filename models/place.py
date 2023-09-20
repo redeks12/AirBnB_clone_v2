@@ -4,7 +4,6 @@ from sqlalchemy import Column, Float, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
 
-from models.amenity import Amenity
 from models.base_model import Base, BaseModel
 from models.review import Review
 
@@ -59,6 +58,7 @@ class Place(BaseModel, Base):
     @property
     def amenities(self):
         """return a list of amenities associated with this place"""
+        from models.amenity import Amenity
         from models import storage
 
         amenities_with_ids = []
@@ -71,5 +71,7 @@ class Place(BaseModel, Base):
 
     @amenities.setter
     def amenities(self, amm):
+        from models.amenity import Amenity
+
         if type(amm) == Amenity:
             self.amenity_ids.append(amm.id)
