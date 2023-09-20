@@ -3,18 +3,25 @@
 from sqlalchemy import Column, Float, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
-
 from models.base_model import Base, BaseModel
 from models.review import Review
 
 place_amenity = Table(
     "place_amenity",
-    metadata=Base.metadata,
-    place_id=Column(
-        String(60), ForeignKey("places.id"), primary_key=True, nullable=False
+    Base.metadata,
+    Column(
+        "place_id",
+        String(60),
+        ForeignKey("places.id"),
+        primary_key=True,
+        nullable=False,
     ),
-    amenity_id=Column(
-        String(60), ForeignKey("amenities.id"), primary_key=True, nullable=False
+    Column(
+        "amenity_id",
+        String(60),
+        ForeignKey("amenities.id"),
+        primary_key=True,
+        nullable=False,
     ),
 )
 
@@ -58,8 +65,8 @@ class Place(BaseModel, Base):
     @property
     def amenities(self):
         """return a list of amenities associated with this place"""
-        from models.amenity import Amenity
         from models import storage
+        from models.amenity import Amenity
 
         amenities_with_ids = []
         ams = storage.all(Amenity)
