@@ -3,7 +3,7 @@
 from sqlalchemy import Column, Float, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
-from models import storage
+
 from models.amenity import Amenity
 from models.base_model import Base, BaseModel
 from models.review import Review
@@ -46,6 +46,7 @@ class Place(BaseModel, Base):
     @property
     def reviews(self):
         """Returns a list of reviews associated with this place"""
+        from models import storage
 
         review_with_ids = []
         revs = storage.all(Review)
@@ -58,6 +59,8 @@ class Place(BaseModel, Base):
     @property
     def amenities(self):
         """return a list of amenities associated with this place"""
+        from models import storage
+
         amenities_with_ids = []
         ams = storage.all(Amenity)
         for key, amm in ams:
