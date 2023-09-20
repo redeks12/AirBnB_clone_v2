@@ -29,6 +29,8 @@ place_amenity = Table(
 class Place(BaseModel, Base):
     """A place to stay"""
 
+    from models.amenity import Amenity
+
     __tablename__ = "places"
     city_id = Column(String(60), ForeignKey("cities.id"), nullable=False)
     user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
