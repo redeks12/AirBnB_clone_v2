@@ -4,7 +4,7 @@ from sqlalchemy import Column, Float, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
 from models.base_model import Base, BaseModel
-from models.review import Review
+
 
 place_amenity = Table(
     "place_amenity",
@@ -28,8 +28,6 @@ place_amenity = Table(
 
 class Place(BaseModel, Base):
     """A place to stay"""
-
-    from models.amenity import Amenity
 
     __tablename__ = "places"
     city_id = Column(String(60), ForeignKey("cities.id"), nullable=False)
@@ -55,6 +53,7 @@ class Place(BaseModel, Base):
     def reviews(self):
         """Returns a list of reviews associated with this place"""
         from models import storage
+        from models.review import Review
 
         review_with_ids = []
         revs = storage.all(Review)
