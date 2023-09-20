@@ -1,10 +1,23 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
-from sqlalchemy import Column, Float, ForeignKey, Integer, String
+from sqlalchemy import Column, Float, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 
+from models import storage
+from models.amenity import Amenity
 from models.base_model import Base, BaseModel
 from models.review import Review
+
+place_amenity = Table(
+    "place_amenity",
+    metadata=Base.metadata,
+    place_id=Column(
+        String(60), ForeignKey("places.id"), primary_key=True, nullable=False
+    ),
+    amenity_id=Column(
+        String(60), ForeignKey("amenities.id"), primary_key=True, nullable=False
+    ),
+)
 
 
 class Place(BaseModel, Base):
@@ -22,11 +35,17 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     reviews = relationship("Review", backref="place", cascade="all, delete")
+    amenities = relationship(
+        "Amenity",
+        secondary=place_amenity,
+        back_populates="place_amenities",
+        viewonly=False,
+    )
+    amenity_ids = []
 
     @property
     def reviews(self):
         """Returns a list of reviews associated with this place"""
-        from models import storage
 
         review_with_ids = []
         revs = storage.all(Review)
@@ -35,3 +54,19 @@ class Place(BaseModel, Base):
                 review_with_ids.append(rev)
 
         return review_with_ids
+
+    @property
+    def amenities(self):
+        """return a list of amenities associated with this place"""
+        amenities_with_ids = []
+        ams = storage.all(Amenity)
+        for key, amm in ams:
+            if amm.place_id == self.id:
+                amenities_with_ids.append(amm)
+
+        return amenities_with_ids
+
+    @amenities.setter
+    def amenities(self, amm):
+        if type(amm) == Amenity:
+            self.amenity_ids.append(amm.id)
