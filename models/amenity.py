@@ -17,7 +17,7 @@ class Amenity(BaseModel, Base):
     if HBNB_STORAGE_TYPE == "db":
         place_amenities = relationship(
             "Place",
-            secondary="place_amenity",
+            secondary=place_amenity,
             back_populates="amenities",
             viewonly=False,
         )
