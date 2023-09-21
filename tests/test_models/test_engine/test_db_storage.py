@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' module for file_storage testss '''
+''' module for file_storage tests '''
 import unittest
 import MySQLdb
 from models.user import User
