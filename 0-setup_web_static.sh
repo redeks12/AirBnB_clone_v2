@@ -46,7 +46,7 @@ sudo ln -s /data/web_static/releases/test/ /data/web_static/current
 
 sudo chown -R ubuntu:ubuntu /data/
 
-sudo sed -i "s|error_page 404 /404.html;|error_page 404 /404.html;\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t\ttry_files \$uri \$uri/ =404;\n\t}|" /etc/nginx/sites-enabled/default
+sudo sed -i "s|server_name _;|server_name _;\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t\ttry_files \$uri \$uri/ =404;\n\t}|" /etc/nginx/sites-enabled/default
 
 sudo nginx -t
 
