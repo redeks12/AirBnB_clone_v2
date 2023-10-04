@@ -2,12 +2,9 @@
 """Write a Fabric script that generates a .tgz archive from the contents of
 the web_static folder of your AirBnB Clone repo, using the function do_pack."""
 import os
-import tarfile
 from datetime import datetime
 
 from fabric.api import local, task
-
-# from fabric.decorators import task
 
 
 @task
@@ -21,6 +18,9 @@ def do_pack():
     The function do_pack must return the archive path if the archive has been correctly generated. Otherwise, it should return None
     """
     date_now = datetime.now()
+
+    if not os.path.exists("versions") and not os.path.isdir("versions"):
+        local("mkdir versions")
 
     filepth = "versions/web_static_{}{}{}{}{}{}.tgz".format(
         date_now.year,
