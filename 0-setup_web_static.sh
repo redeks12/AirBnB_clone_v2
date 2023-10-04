@@ -40,14 +40,14 @@ sudo touch /data/web_static/releases/test/index.html
 sudo echo "$myhtml" > /data/web_static/releases/test/index.html
 
 if [ -f /data/web_static/current ]; then
-    sudo rm -r /data/web_static/current
+    sudo rm /data/web_static/current
 fi
 sudo ln -s /data/web_static/releases/test/ /data/web_static/current
 
 sudo chown -R ubuntu:ubuntu /data/
 
-sudo sed -i "s|server_name _;|server_name _;\n\tlocation /hbnb_static {\n\talias /data/web_static/current;/\n}|" /etc/nginx/sites-enabled/default
+sudo sed -i "s|server_name _;|server_name _;\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t\ttry_files $uri $uri/ =404;\n\t}|" /etc/nginx/sites-enabled/default
 
 sudo nginx -t
 
-sudo nginx restart
+sudo service nginx restart
