@@ -22,8 +22,8 @@ if [ ! -d /data/web_static/shared/ ]; then
     sudo mkdir /data/web_static/shared/
 fi
 
-if [ ! -d /data/web_static/releases/test ]; then
-    sudo mkdir /data/web_static/releases/test
+if [ ! -d /data/web_static/releases/test/ ]; then
+    sudo mkdir /data/web_static/releases/test/
 fi
 myhtml="<!DOCTYPE html>
 <html lang='en'>
@@ -39,9 +39,15 @@ myhtml="<!DOCTYPE html>
 sudo touch /data/web_static/releases/test/index.html
 sudo echo "$myhtml" > /data/web_static/releases/test/index.html
 
-if [ -d /data/web_static/current/ ]; then
+if [ -f /data/web_static/current ]; then
     sudo rm -r /data/web_static/current
 fi
 sudo ln -s /data/web_static/releases/test/ /data/web_static/current
 
 sudo chown -R ubuntu:ubuntu /data/
+
+sudo sed -i "s|server_name _;|server_name _;\n\tlocation /hbnb_static {\n\talias /data/web_static/current;/\n}|" /etc/nginx/sites-enabled/default
+
+sudo nginx -t
+
+sudo nginx restart
