@@ -25,7 +25,7 @@ fi
 if [ ! -d /data/web_static/releases/test ]; then
     sudo mkdir /data/web_static/releases/test
 fi
-$myhtml = "<!DOCTYPE html>
+myhtml = "<!DOCTYPE html>
 <html lang='en'>
 <head>
 </head>
