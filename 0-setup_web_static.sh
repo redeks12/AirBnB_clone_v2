@@ -35,10 +35,10 @@ myhtml = "<!DOCTYPE html>
 </html>"
 
 sudo touch /data/web_static/releases/test/index.html
-sudo echo $myhtml > /data/web_static/releases/test/index.html
+sudo echo "$myhtml" > /data/web_static/releases/test/index.html
 
 if [ -d /data/web_static/current/ ]; then
-    sudo rm /data/web_static/current/
+    sudo rm -r /data/web_static/current/
 fi
 sudo ln -s /data/web_static/releases/test/ /data/web_static/current
 
