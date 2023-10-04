@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Write a Bash script that transfers a file from our client to a server
-if [ $# -gt 1 ]; then
+if [ $# -gt 2 ]; then
     scp -o StrictHostKeyChecking=no -i ~/.ssh/school $1 ubuntu@100.25.17.121:~/
 else
     echo 'Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY'
