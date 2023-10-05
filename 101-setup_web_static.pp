@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
 # using puppet to configure ssh
 
-$myhtml="<!DOCTYPE html>
-<html lang='en'>
-    <head>
-        <title>My HTML Page</title>
-    </head>
-    <body>
-        <p>My HTML Page</p>
-    </body>
-</html>
-"
+$myhtml="<!DOCTYPE html>\n<html lang='en'>\n\t<head>\n\t\t<title>My HTML Page</title>\n\t</head>\n\t<body>\n\t\t<p>My HTML Page</p>\n\t</body>\n</html>"
 package { 'nginx':
     ensure => 'installed',
 }
