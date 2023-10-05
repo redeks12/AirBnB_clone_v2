@@ -4,14 +4,13 @@ using the function do_deploy:"""
 
 import os
 
-from fabric.api import put, run, task, parallel, sudo, env
+from fabric.api import put, run, task, sudo, env
 
 
 env.hosts = ["ubuntu@54.145.85.177", "ubuntu@100.25.17.121"]
 
 
 @task
-@parallel
 def do_deploy(archive_path):
     """Prototype: def do_deploy(archive_path):
     Returns False if the file at the path archive_path doesn’t exist
