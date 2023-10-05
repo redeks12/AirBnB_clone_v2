@@ -7,8 +7,8 @@ from datetime import datetime
 from fabric.api import env, local, put, run, task
 
 env.hosts = ["54.145.85.177", "100.25.17.121"]
-env.user = "ubuntu"
-env.password = "betty"
+# env.password = "betty"
+env.forward_agent = True
 
 
 @task
