@@ -4,7 +4,7 @@ using the function do_deploy:"""
 
 import os
 
-from fabric.api import put, run, task, sudo, env
+from fabric.api import put, run, task, env
 
 
 env.hosts = ["54.145.85.177", "100.25.17.121"]
@@ -12,7 +12,6 @@ env.user = "ubuntu"
 env.password = "betty"
 
 
-@task
 def do_deploy(archive_path):
     """Prototype: def do_deploy(archive_path):
     Returns False if the file at the path archive_path doesn’t exist
@@ -28,7 +27,7 @@ def do_deploy(archive_path):
         r = fl.split(".")[0]
         put(archive_path, "/tmp/")
         run("mkdir -p /data/web_static/releases/{}".format(r))
-        run("tar -xzvf /tmp/{} -C /data/web_static/releases/{}/".format(fl, r))
+        run("tar -xzf /tmp/{} -C /data/web_static/releases/{}/".format(fl, r))
         run(
             "mv /data/web_static/releases/{}/web_static/* /data/web_static/releases/{}/".format(
                 r, r
