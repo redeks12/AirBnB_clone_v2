@@ -21,9 +21,10 @@ def do_deploy(archive_path):
     if not os.path.exists(archive_path):
         print(archive_path)
         return False
-    fl = archive_path.split("/")[1].split(".")[0]
+    fl = archive_path.split("/")[1]
+    r = fl.split(".")[0]
     put(archive_path, "/tmp/")
-    d = run("tar -xzvf /data/web_static/releases/{}".format(fl))
+    d = run("tar -xzvf {} -C /data/web_static/releases/{}".format(r, fl))
     print(d.return_code)
     d = run("rm -r /tmp/*.tgz")
     print(d.return_code)
