@@ -21,8 +21,12 @@ def do_deploy(archive_path):
     fl = archive_path.split("/")[1].split(".")[0]
     env.hosts = ["54.145.85.177", "100.25.17.121"]
     put(archive_path, "/tmp/")
-    run("tar -xzvf /data/web_static/releases/{}".format(fl))
-    run("rm -r /tmp/*.tgz")
-    run("rm -r /data/web_static/current")
-    run("ln -s /data/web_static/releases/{} /data/web_static/current".format(fl))
+    d = run("tar -xzvf /data/web_static/releases/{}".format(fl))
+    print(d.return_code)
+    d = run("rm -r /tmp/*.tgz")
+    print(d.return_code)
+    d = run("rm -r /data/web_static/current")
+    print(d.return_code)
+    d = run("ln -s /data/web_static/releases/{} /data/web_static/current".format(fl))
+    print(d.return_code)
     return True
