@@ -24,7 +24,7 @@ def do_deploy(archive_path):
     fl = archive_path.split("/")[1]
     r = fl.split(".")[0]
     put(archive_path, "/tmp/")
-    d = run("tar -xzvf {} -C /data/web_static/releases/{}".format(fl, r))
+    d = run("tar -xzvf /tmp/{} -C /data/web_static/releases/{}".format(fl, r))
     print(d.return_code)
     d = run("rm -r /tmp/*.tgz")
     print(d.return_code)
