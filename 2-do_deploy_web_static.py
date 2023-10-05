@@ -24,5 +24,5 @@ def do_deploy(archive_path):
     run("tar -xzvf /data/web_static/releases/{}".format(fl))
     run("rm -r /tmp/*.tgz")
     run("rm -r /data/web_static/current")
-    sudo("ln -s /data/web_static/releases/{} /data/web_static/current".format(fl))
+    run("ln -s /data/web_static/releases/{} /data/web_static/current".format(fl))
     return True
