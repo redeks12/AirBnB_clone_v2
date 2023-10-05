@@ -60,7 +60,7 @@ def do_deploy(archive_path):
     except:
         return False
 
-
+@task
 def deploy():
     """deploying using the previous tasks"""
     package = do_pack()
