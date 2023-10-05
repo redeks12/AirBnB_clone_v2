@@ -17,6 +17,7 @@ def do_deploy(archive_path):
     Uncompress the archive to the folder /data/web_static/releases/<archive filename without extension> on the web server
     Delete the archive from the web server"""
     if not os.path.exists(archive_path):
+        print("okay")
         return False
     fl = archive_path.split("/")[1].split(".")[0]
     env.hosts = ["54.145.85.177", "100.25.17.121"]
