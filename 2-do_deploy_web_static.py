@@ -32,7 +32,8 @@ def do_deploy(archive_path):
             r, r
         )
     )
-    run("rm -r /tmp/*.tgz")
-    run("rm -r /data/web_static/current")
+    run("rm -rf /data/web_static/releases/{}/web_static".format(r))
+    run("rm -rf /tmp/{}".format(fl))
+    run("rm -rf /data/web_static/current")
     run("ln -s /data/web_static/releases/{} /data/web_static/current".format(r))
     return True
