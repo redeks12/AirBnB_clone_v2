@@ -9,6 +9,7 @@ from fabric.api import put, run, task, env
 
 env.hosts = ["54.145.85.177", "100.25.17.121"]
 # env.password = "betty"
+env.forward_agent = True
 
 
 def do_deploy(archive_path):
