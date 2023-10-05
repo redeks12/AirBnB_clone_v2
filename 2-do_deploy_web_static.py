@@ -7,6 +7,9 @@ import os
 from fabric.api import put, run, task, parallel, sudo, env
 
 
+env.hosts = ["ubuntu@54.145.85.177", "ubuntu@100.25.17.121"]
+
+
 @task
 @parallel
 def do_deploy(archive_path):
@@ -20,7 +23,6 @@ def do_deploy(archive_path):
         print(archive_path)
         return False
     fl = archive_path.split("/")[1].split(".")[0]
-    env.hosts = ["ubuntu@54.145.85.177", "ubuntu@100.25.17.121"]
     put(archive_path, "/tmp/")
     d = run("tar -xzvf /data/web_static/releases/{}".format(fl))
     print(d.return_code)
