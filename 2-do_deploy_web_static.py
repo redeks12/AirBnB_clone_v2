@@ -4,7 +4,7 @@ using the function do_deploy:"""
 
 import os
 
-from fabric.api import env, put, run, task, parallel, sudo
+from fabric.api import put, run, task, parallel, sudo, env
 
 
 @task
@@ -18,9 +18,9 @@ def do_deploy(archive_path):
     Delete the archive from the web server"""
     if not os.path.exists(archive_path):
         return False
+    fl = archive_path.split("/")[1].split(".")[0]
     env.hosts = ["54.145.85.177", "100.25.17.121"]
     put(archive_path, "/tmp/")
-    fl = archive_path.split("/")[1].split(".")[0]
     run("tar -xzvf /data/web_static/releases/{}".format(fl))
     run("rm -r /tmp/*.tgz")
     run("rm -r /data/web_static/current")
