@@ -8,7 +8,7 @@ from fabric.api import put, run, task, sudo, env
 
 
 env.hosts = ["54.145.85.177", "100.25.17.121"]
-env.user = 'ubuntu'
+env.user = "ubuntu"
 env.password = "betty"
 
 
@@ -23,18 +23,21 @@ def do_deploy(archive_path):
     if not os.path.exists(archive_path):
         print(archive_path)
         return False
-    fl = archive_path.split("/")[1]
-    r = fl.split(".")[0]
-    put(archive_path, "/tmp/")
-    run("mkdir -p /data/web_static/releases/{}".format(r))
-    run("tar -xzvf /tmp/{} -C /data/web_static/releases/{}/".format(fl, r))
-    run(
-        "mv /data/web_static/releases/{}/web_static/* /data/web_static/releases/{}/".format(
-            r, r
+    try:
+        fl = archive_path.split("/")[1]
+        r = fl.split(".")[0]
+        put(archive_path, "/tmp/")
+        run("mkdir -p /data/web_static/releases/{}".format(r))
+        run("tar -xzvf /tmp/{} -C /data/web_static/releases/{}/".format(fl, r))
+        run(
+            "mv /data/web_static/releases/{}/web_static/* /data/web_static/releases/{}/".format(
+                r, r
+            )
         )
-    )
-    run("rm -rf /data/web_static/releases/{}/web_static".format(r))
-    run("rm -rf /tmp/{}".format(fl))
-    run("rm -rf /data/web_static/current")
-    run("ln -s /data/web_static/releases/{} /data/web_static/current".format(r))
-    return True
+        run("rm -rf /data/web_static/releases/{}/web_static".format(r))
+        run("rm -rf /tmp/{}".format(fl))
+        run("rm -rf /data/web_static/current")
+        run("ln -s /data/web_static/releases/{} /data/web_static/current".format(r))
+        return True
+    except:
+        return False
