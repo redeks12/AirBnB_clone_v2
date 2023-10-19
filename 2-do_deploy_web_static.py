@@ -21,6 +21,7 @@ def do_deploy(archive_path):
     if not os.path.exists(archive_path):
         print(archive_path)
         return False
+
     try:
         fl = archive_path.split("/")[1]
         r = fl.split(".")[0]
