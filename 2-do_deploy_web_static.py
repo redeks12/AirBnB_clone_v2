@@ -23,6 +23,7 @@ def do_deploy(archive_path):
         return False
 
     try:
+        '''
         fl = archive_path.split("/")[1]
         r = fl.split(".")[0]
         put(archive_path, "/tmp/")
@@ -37,6 +38,8 @@ def do_deploy(archive_path):
         run("rm -rf /tmp/{}".format(fl))
         run("rm -rf /data/web_static/current")
         run("ln -s /data/web_static/releases/{} /data/web_static/current".format(r))
-        return True
+        return True'''
+        run('mkdir -p nan')
+        print('done a')
     except:
         return False
