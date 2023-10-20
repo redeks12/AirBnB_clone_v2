@@ -2,7 +2,7 @@
 """Write a script that starts a Flask web application"""
 from flask import Flask, render_template
 
-from models import storage
+# from models import storage
 from models.state import State
 
 app = Flask(__name__)
@@ -10,13 +10,14 @@ app = Flask(__name__)
 
 @app.route("/states_list", strict_slashes=False)
 def state_list():
-    states = storage.all(State)
+    # states = storage.all(State)
+    states = []
     render_template("7-states_list.html", states=states)
 
 
-@app.teardown_appcontext
-def tear_down_app():
-    storage.close()
+# @app.teardown_appcontext
+# def tear_down_app():
+#     storage.close()
 
 
-app.run(host="0.0.0.0", port=5000)
+# app.run(host="0.0.0.0", port=5000)
