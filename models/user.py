@@ -6,7 +6,8 @@ from sqlalchemy.orm import relationship
 from models.base_model import Base, BaseModel
 from models.place import Place
 from models.review import Review
-from models import HBNB_STORAGE_TYPE
+
+HBNB_STORAGE_TYPE = os.environ.get("HBNB_TYPE_STORAGE")
 
 
 class User(BaseModel, Base):
