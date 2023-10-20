@@ -23,7 +23,7 @@ class State(BaseModel, Base):
 
             cit = []
             store = storage.all(City)
-            for key, city in store:
+            for key, city in store.items():
                 if self.id == city.state_id:
                     cit.append(city)
             return cit
