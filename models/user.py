@@ -6,15 +6,17 @@ from sqlalchemy.orm import relationship
 from models.base_model import Base, BaseModel
 from models.place import Place
 from models.review import Review
+from models import HBNB_STORAGE_TYPE
 
 
 class User(BaseModel, Base):
     """This class defines a user by various attributes"""
 
     __tablename__ = "users"
-    email = Column(String(128), nullable=False)
-    password = Column(String(128), nullable=False)
-    first_name = Column(String(128), nullable=True)
-    last_name = Column(String(128), nullable=True)
-    places = relationship("Place", backref="user", cascade="all, delete")
-    reviews = relationship("Review", backref="user", cascade="all, delete")
+    if HBNB_STORAGE_TYPE == "db":
+        email = Column(String(128), nullable=False)
+        password = Column(String(128), nullable=False)
+        first_name = Column(String(128), nullable=True)
+        last_name = Column(String(128), nullable=True)
+        places = relationship("Place", backref="user", cascade="all, delete")
+        reviews = relationship("Review", backref="user", cascade="all, delete")

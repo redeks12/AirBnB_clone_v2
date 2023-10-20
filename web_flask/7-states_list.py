@@ -8,11 +8,11 @@ from models.state import State
 app = Flask(__name__)
 
 
-# @app.route("/states_list", strict_slashes=False)
-# def state_list():
-#     """list all states"""
-#     states = storage.all(State)
-#     render_template("7-states_list.html", states=states)
+@app.route("/states_list", strict_slashes=False)
+def state_list():
+    """list all states"""
+    states = storage.all(State)
+    render_template("7-states_list.html", states=states)
 
 
 @app.teardown_appcontext
