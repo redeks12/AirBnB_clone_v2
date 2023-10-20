@@ -36,5 +36,27 @@
         "state_id": "63166440-de69-45f2-8070-469273d0088a",
         "name": "Page",
         "__class__": "City"
+    },
+    "Place.452c40fa-5604-4d8b-a0e5-53177579ea11": {
+        "id": "452c40fa-5604-4d8b-a0e5-53177579ea11",
+        "created_at": "2023-10-20T22:41:20.018398",
+        "updated_at": "2023-10-20T22:41:20.018398",
+        "time": 21,
+        "__class__": "Place"
+    },
+    "Place.ff70a795-a9ba-4479-878a-2a3effe9bdf7": {
+        "id": "ff70a795-a9ba-4479-878a-2a3effe9bdf7",
+        "created_at": "2023-10-20T22:41:47.645037",
+        "updated_at": "2023-10-20T22:41:47.645037",
+        "time": 21,
+        "__class__": "Place"
+    },
+    "Place.b893b6a3-6d4c-4fc8-8813-88da731fcc27": {
+        "id": "b893b6a3-6d4c-4fc8-8813-88da731fcc27",
+        "created_at": "2023-10-20T22:42:38.567452",
+        "updated_at": "2023-10-20T22:42:38.567452",
+        "state": "jerry",
+        "time": 21,
+        "__class__": "Place"
     }
 }
