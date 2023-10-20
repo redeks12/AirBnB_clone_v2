@@ -16,7 +16,7 @@ def state_list():
 
 
 @app.teardown_appcontext
-def tear_down_app():
+def tear_downapp():
     """clean up all the states"""
     storage.close()
 
