@@ -76,4 +76,5 @@ class FileStorage:
             pass
 
     def close(self):
+        '''close the file'''
         self.reload()
