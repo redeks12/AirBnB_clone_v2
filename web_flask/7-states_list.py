@@ -15,7 +15,6 @@ def state_list():
     store = storage.all(State)
     for key, state in store.items():
         states.append(state)
-        print(state)
     return render_template("7-states_list.html", states=states)
 
 
