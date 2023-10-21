@@ -6,7 +6,7 @@
   <body>
     {% if states == None %}
     <h1>Not found!</h1>
-    {% else %} {% if states|type == 'list' %}
+    {% else %} {% if lst %}
     <h1>States</h1>
     <ul>
       {% for state in states|sort(attribute='name') %}

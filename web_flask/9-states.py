@@ -16,7 +16,7 @@ def states_ids(id):
     for key, state in stored:
         if state.id == id:
             s_var = state
-    return render_template("9-states.html", states=s_var)
+    return render_template("9-states.html", states=s_var, lst=False)
 
 
 @app.route("/states", strict_slashes=False)
@@ -24,7 +24,7 @@ def states():
     """list all states"""
     stored = storage.all(State).items()
     state = [state for key, state in stored]
-    return render_template("9-states.html", states=state)
+    return render_template("9-states.html", states=state, lst=True)
 
 
 @app.teardown_appcontext
