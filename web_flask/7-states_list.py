@@ -11,8 +11,11 @@ app = Flask(__name__)
 @app.route("/states_list", strict_slashes=False)
 def state_list():
     """list all states"""
-    keys, states = storage.all(State).items()
-    print(states)
+    states = []
+    store = storage.all(State)
+    for key, state in store.items():
+        states.append(state)
+        print(state)
     return render_template("7-states_list.html", states=states)
 
 
