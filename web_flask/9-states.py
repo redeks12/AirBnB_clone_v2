@@ -12,8 +12,8 @@ app = Flask(__name__)
 def states_ids(id):
     """list all states"""
     s_var = None
-    stored = storage.all(State).items()
-    for key, state in stored:
+    stored = storage.all(State)
+    for key, state in stored.items():
         if state.id == id:
             s_var = state
     return render_template("9-states.html", states=s_var, lst=False)

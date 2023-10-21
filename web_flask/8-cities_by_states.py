@@ -10,8 +10,8 @@ app = Flask(__name__)
 @app.route("/cities_by_states", strict_slashes=False)
 def list_states():
     """list all cities"""
-    stored = storage.all(State).items()
-    states = [state for key, state in stored]
+    stored = storage.all(State)
+    states = [state for key, state in stored.items()]
     return render_template("8-cities_by_states.html", states=states)
 
 
