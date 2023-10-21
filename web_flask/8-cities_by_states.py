@@ -12,6 +12,8 @@ def list_states():
     """list all cities"""
     stored = storage.all(State)
     states = [state for key, state in stored.items()]
+    for st in states:
+        print(st.cities)
     return render_template("8-cities_by_states.html", states=states)
 
 
