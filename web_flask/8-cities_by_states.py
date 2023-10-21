@@ -11,10 +11,7 @@ app = Flask(__name__)
 def list_states():
     """list all cities"""
     stored = storage.all(State)
-    statess = [state for key, state in stored.items()]
-    states = []
-    for st in statess:
-        print(st)
+    states = [state for key, state in stored.items()]
     return render_template("8-cities_by_states.html", states=states)
 
 

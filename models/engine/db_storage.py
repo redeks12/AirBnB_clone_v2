@@ -46,7 +46,7 @@ class DBStorage:
                 cls = eval(cls)
             queries = self.__session.query(cls).all()
             for query in queries:
-                del query._sa_instance_state
+                # del query._sa_instance_state
                 objs.update({"{}.{}".format(query.__class__.__name__, query.id): query})
             return objs
         else:
