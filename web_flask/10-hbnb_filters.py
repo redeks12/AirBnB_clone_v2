@@ -4,6 +4,7 @@ from flask import Flask, render_template
 
 from models import storage
 from models.state import State
+from models.amenity import Amenity
 
 app = Flask(__name__)
 
@@ -11,7 +12,8 @@ app = Flask(__name__)
 @app.route("/hbnb_filters", strict_slashes=False)
 def hbnb_filters():
     states = storage.all(State).values()
-    return render_template("10-hbnb_filters.html", states=states)
+    amenities = storage.all(Amenity).values()
+    return render_template("10-hbnb_filters.html", states=states, amenities=amenities)
 
 
 @app.teardown_appcontext
